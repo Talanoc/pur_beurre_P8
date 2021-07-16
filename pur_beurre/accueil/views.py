@@ -5,5 +5,5 @@ from django.http import HttpResponse
 
 
 def accueil(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request, 'index.html')
 

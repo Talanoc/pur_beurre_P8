@@ -23,4 +23,7 @@ class Favorite_db(models.Model):
     id_product = models.ForeignKey(Db_product , on_delete=models.CASCADE)
     id_user = models.ForeignKey(User_db ,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+#class Category_db(models.Model):
+
     
