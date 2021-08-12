@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+       <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            {% if product %}
+            
+            <div class="container">
+                <h3 class="text-primary text-center mb-5"> votre produit</h3>
+                
+                <div class="row mt-3">
+                    {%for product in product %}
+                    <div class="col-lg-4 mb-5">
+                        <div class="card prod_card m-auto" style="height: 20rem;">
+                            <div class="position-relative">
+                              
+                                <img class="img_nutriscore" src="/static/assets/img/nutriscore_{{product.nutriscore_grade}}.png" alt="nutriscore">
+                            </div>
+                            <img src={{product.image_small_url}} class="card-img-top img_product" alt="image du produit">
+                            <div class="text-center mt-auto" style="min-height: 2rem;">{{product.product_name }}</div>
+                            <div class="btn">
+                          
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <h3 class="text-primary text-center mb-5"> Produits de remplacement</h3>
+                    <div id="portfolio">
+                        <div class="container-fluid p-0">
+                            <div class="row g-0">
+                                {%for replace in replacement %}
+                                <div class="col-lg-4 col-sm-6">
+                                    <a class="portfolio-box" src="{{replace.image_url}}" title="Project Name">
+                                        <img class="img-fluid" src="{{replace.image_url}}" alt="..." />
+                                        <div class="portfolio-box-caption">
+                                            <div class="project-category text-white-50">nuitriscore:{{replace.nutriscore_grade}} </div>
+                                            <div class="project-name">{{replace.product_name}}</div>
+                                            
+                                        </div>
+                                            
+                                    </a>
+                                      
+                                </div>
+                                {% endfor %}
+                                
+            {% else %}
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Du gras, oui, mais de qualité!</h1>
+                    <hr class="divider" />
+                    <h2>Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <form method="GET" action="search_product">
+                        <input type="text" name="search1" class="form-control" placeholder="Rechercher..." aria-label="Search">
+                    </form>
+                    <h4 class="text-primary">Désolés, nous n'avons trouvé aucun produit correspondant à votre recherche</h4>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+    </header>  
+
+{% endblock %}

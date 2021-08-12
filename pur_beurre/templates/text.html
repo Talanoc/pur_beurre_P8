@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -6,6 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Pur-beurre</title>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="static/assets/logo_pur_beurre-favicon.png" />
         <!-- Bootstrap Icons-->
@@ -19,28 +21,34 @@
         <link href="static/css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+
+        {% block navigation %}
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3"  id="mainNav">
             <div class="container px-4 px-lg-5">
+                <img class="img_w50" src="static/assets/img/logo.png" width="40" height="40" alt="logo_pur_beurre">
                 <a class="navbar-brand" href="#page-top">Pur-beurre</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item">
-                            <form method="get" class="research-nav" >
-                                <input type="text" id="logo-search" class="form-control form-control-sm js-scroll-trigger"
-                                    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Recherche">
-                            </form>
+                            <form class="form-inline"  action="search_product" method="get" accept-charset="utf-8">
+                                <input class="form-control" name="search1" id="search1" type="text" placeholder="Rechercher" aria-label="Search">
+                                <input type="submit" class="invisible"/>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="#contact"><span class="iconify" data-icon="mdi:account" data-inline="false">account</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services"></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio"><span class="iconify" data-icon="noto-v1:carrot" data-inline="false"></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#page-top"><span class="iconify" data-icon="mdi:exit-run" data-inline="false"></span></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        {% endblock navigation %}
+
+        {% block content %}
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
@@ -50,20 +58,50 @@
                         <h2 class="text-white font-weight-bold">Trouvez un produit de substitution pour ceux que vous consommez tous les jours .</h2>
                         <hr class="divider" />
                     </div>
+                    
                     <div class="col-lg-8 align-self-baseline">
+
                         <h2 class="text-white-75 mb-5">Colette   et   Rémy !</p>
+                            
+                            <form class="form-inline" action="" method="get" accept-charset="utf-8">
+                                <input class="form-control" id="search" type="search" placeholder="Rechercher" aria-label="Search">
+                                <input type="submit" class="invisible"/>
+
                             <hr class="divider" />
                             <h6 class="text-white-75 mb-5">Remy et Colette sont amoureux de la gastronomie française (on ne peut les blâmer !). Travaillant quotidiennement avec les meilleurs produits du terroir, ils affectionnent particulièrement la bonne chaire et aiment partager leur passion. Il est donc normal que Remy ait sauté au plafond quand Colette, un jour de déprime, sortit du placard un kilo de Nutella et l’attaqua à la petite cuillère. Pourquoi ne pas opter pour une pâte à tartiner aux noisettes, plus consistante et moins sucrée ? Pourquoi, oh pourquoi s’infliger une telle souffrance ? Rémy était sidéré. La réponse de Colette fut simple : elle n’avait pas trouvé de substitut assez convainquant. A vrai dire, elle n’avait même pas cherché.</h6>  
                             <hr class="divider" />   
                             
                             <hr class="divider" />
                         <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+                            <hr class="divider" /> 
+                         
+                            
+                            <div class="row gx-4 gx-lg-9 justify-content-center">
+
+                                <div class="row">
+                                    <div class="col-md-6 offset-md-3"><h2>Contactez-nous !</h2></div>
+                                    <div class="col-md-6 offset-md-3"><h6>Nous vous répondrons !</h6></div>
+                                  </div>
+                                                                    
+                                    <div class="col-6 col-sm-3"><i class="bi-phone fs-2 mb-3 text-muted"></i></div>
+                                    <div class="col-6 col-sm-3"><i class="bi-envelope fs-2 mb-3 text-muted"></i></div>
+                                
+                                    <!-- Force next columns to break to new line -->
+                                    <div class="w-100"></div>
+                                
+                                    <div class="col-6 col-sm-3"><div>+1 (555) 123-4567</div></div>
+                                    <div class="col-6 col-sm-3"><div>mail@mail.com</div></div>
+                                    </div>
+                              </div>    
+                            </div>
                     </div>
                 </div>
             </div>
         </header>
+        {% endblock content %}
         <!-- About-->
         <section class="page-section bg-primary" id="about">
+
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -118,7 +156,7 @@
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box" href="static/assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img class="img-fluid" src="static/assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                            <img class="img-fluid" src="https://images.openfoodfacts.org/images/products/349/791/400/0009/front_fr.68.200.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -213,18 +251,8 @@
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
+                           
+
                             <!-- Submit success message-->
                             <!---->
                             <!-- This is what your users will see when the form-->
@@ -247,12 +275,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                        <div>+1 (555) 123-4567</div>
-                    </div>
-                </div>
+                
             </div>
         </section>
         <!-- Footer-->

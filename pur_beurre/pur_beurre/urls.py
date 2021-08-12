@@ -14,18 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from django.conf import settings
 from accueil import views
 
+
+
 urlpatterns = [
-    path('',views.accueil,name='accueil' ),
+    path('', views.accueil, name='accueil'),
     path('admin/', admin.site.urls),
     path('accueil/', include('accueil.urls')),
+    path('search_product/', include('search.urls')),
+    path('user/', include('user.urls')),
 ]
-
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
-        path('__debug__/',include(debug_toolbar.urls)),
-    ] + urlpatterns 
+       path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
